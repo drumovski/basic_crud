@@ -1,10 +1,17 @@
 const express = require("express")
 const app = express()
-const port = 3000
 const postRouter = require("./routes/post_routes")
-// get route to get hello world
+const port = 3000
+// get route to sent hello world response
+
 app.get("/", (req, res)=>{
     res.json({message: "Hello World"})
 })
+
+// /posts
+// when there are any /posts/* requests direct them to post_routes file
 app.use("/posts", postRouter)
-app.listen(port, ()=> console.log(`server started on port ${port}`))
+
+
+app.listen(port, () =>  console.log(`server started on port ${port}`))
+
